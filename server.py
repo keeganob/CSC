@@ -20,5 +20,5 @@ while True:
 		connectionSocket.close() 
 		#close the connection 
 	except Exception as e:
-		print(f"An Error occured: {e}")
+		print(f"an Error occured: {e}")
 
