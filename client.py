@@ -17,10 +17,10 @@ clientSocket = socket(AF_INET, SOCK_STREAM)
 clientSocket.connect((serverName, serverPort))
 
 if requestType == 'Register':
-	sentence = 'REGISTER!'
+	sentence = 'REGISTER!'	
 	
-elif requestType == 'Query':
-	sentence = 'QUERY!'
+elif requestType == 'List':
+	sentence = 'LIST!'
 
 elif requestType == 'Chat':
 	sentence = 'CHAT'
