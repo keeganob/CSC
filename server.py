@@ -36,6 +36,9 @@ while True:
                     reply = "SUCCESSFUL LOGIN"
                 else:
                     reply = "INVALID CREDENTIALS!"
+        elif command == "LIST":
+            user_list = ', '.join(users.keys())
+            reply = f"USER LIST: {user_list}"
         else:
             reply = "INVALID COMMAND!"
 
@@ -45,3 +48,4 @@ while True:
         connectionSocket.close()
     except Exception as e:
         print(f"An error occurred: {e}")
+

@@ -13,7 +13,7 @@ args = parser.parse_args()
 
 serverName = args.server_ip
 serverPort = args.server_port
-requestType = args.request
+requestType = args.request.lower()
 username = args.username
 password = args.password
 
@@ -25,10 +25,13 @@ if requestType == 'register' and username and password:
 elif requestType == 'login' and username and password:
     sentence = f"LOGIN {username} {password}"
 	
-elif requestType == 'List':
-	sentence = 'LIST!'
+elif requestType == 'list':
+	clientSocket.send("LIST".encode())
+	user_list = clientSocket.recv(1024).decode()
+	sentence = user_list
+	print(user_list)
 
-elif requestType == 'Chat':
+elif requestType == 'chat':
 	sentence = 'CHAT'
 else:
 	sentense = 'UNKNOWN REQUEST TYPE'
@@ -37,6 +40,6 @@ clientSocket.send(sentence.encode())
 
 modifiedSentence = clientSocket.recv(1024)
 
-print('From Server:', modifiedSentence.decode())
+print( modifiedSentence.decode())
 clientSocket.close()
 
